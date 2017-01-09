@@ -8,7 +8,7 @@
   </head>
   <body ng-app="myApp">
 
-    <div ng-controller="HeroController">
+    <div ng-controller="HeroController" ng-init="getHeros()">
       <h2>Hero Tracker</h2>
       <form ng-submit="addHero()" id="stylized" class="myform">
         <label for="alias">Alias:</label>

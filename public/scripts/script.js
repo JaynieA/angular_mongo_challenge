@@ -26,4 +26,14 @@ myApp.controller('HeroController', ['$scope', '$http', function($scope, $http) {
     }); // end $http
   }; // end addHero
 
+  $scope.getHeros = function() {
+    console.log('in getHeros');
+    $http({
+      method: 'GET',
+      url: '/hero'
+    }).then(function(response) {
+      console.log(response);
+    }); // end $http
+  }; // end getHeros
+
 }]); // end HeroController
