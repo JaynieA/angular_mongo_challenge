@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
     console.log(data);
     res.send(data);
   }); // end find
-});
+}); // end getHeros
 
 // post to create a new hero
 router.post('/', function(req, res) {
@@ -17,6 +17,6 @@ router.post('/', function(req, res) {
   var newHero = Hero(req.body);
   newHero.save();
   res.sendStatus(200);
-});
+}); // end postHeros
 
 module.exports = router;

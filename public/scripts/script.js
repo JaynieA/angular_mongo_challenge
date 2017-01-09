@@ -3,7 +3,16 @@ console.log('sourced');
 var myApp = angular.module( 'myApp', [] );
 
 myApp.controller('HeroController', ['$scope', '$http', function($scope, $http) {
-  console.log('hero controller');
+  $scope.allHeros = [];
+
+  var clearForm = function() {
+    //clear the form inputs
+    $scope.aliasIn = '';
+    $scope.firstNameIn = '';
+    $scope.lastNameIn = '';
+    $scope.cityIn = '';
+    $scope.powerIn = '';
+  }; // end clearForm
 
   $scope.addHero = function() {
     console.log('in addHero');
@@ -23,6 +32,8 @@ myApp.controller('HeroController', ['$scope', '$http', function($scope, $http) {
       data: heroToSend
     }).then( function(response) {
       console.log(response);
+      clearForm();
+      $scope.getHeros();
     }); // end $http
   }; // end addHero
 
@@ -33,6 +44,7 @@ myApp.controller('HeroController', ['$scope', '$http', function($scope, $http) {
       url: '/hero'
     }).then(function(response) {
       console.log(response);
+      $scope.allHeros = response.data;
     }); // end $http
   }; // end getHeros
 
