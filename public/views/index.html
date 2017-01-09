@@ -6,21 +6,25 @@
     <script src="./scripts/script.js" charset="utf-8"></script>
     <link rel="stylesheet" href="./styles/style.css">
   </head>
-  <body>
-    <h2>Hero Tracker</h2>
-    <form id="stylized" class="myform">
-      <label for="alias">Alias:</label>
-      <input type="text" name="alias" value="">
-      <label for="first">First Name:</label>
-      <input type="text" name="first" value="">
-      <label for="last">Last Name:</label>
-      <input type="text" name="last" value="">
-      <label for="city">City:</label>
-      <input type="text" name="city" value="">
-      <label for="power">Power:</label>
-      <input type="text" name="power" value="">
-      <button type="button" name="button">Add Hero</button>
-    </form>
-    <div><!-- Hero View All --></div>
+  <body ng-app="myApp">
+
+    <div ng-controller="HeroController">
+      <h2>Hero Tracker</h2>
+      <form ng-submit="addHero()" id="stylized" class="myform">
+        <label for="alias">Alias:</label>
+        <input ng-model="aliasIn" type="text" name="alias" value="">
+        <label for="first">First Name:</label>
+        <input ng-model="firstNameIn" type="text" name="first" value="">
+        <label for="last">Last Name:</label>
+        <input ng-model="lastNameIn" type="text" name="last" value="">
+        <label for="city">City:</label>
+        <input ng-model="cityIn" type="text" name="city" value="">
+        <label for="power">Power:</label>
+        <input ng-model="powerIn" type="text" name="power" value="">
+        <button type="submit" name="button">Add Hero</button>
+      </form>
+      <div><!-- Hero View All --></div>
+
+    </div> <!-- End Hero Controller -->
   </body>
 </html>
