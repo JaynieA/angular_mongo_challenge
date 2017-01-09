@@ -1,4 +1,4 @@
-console.log('sourced');
+var verbose = false;
 
 var myApp = angular.module( 'myApp', [] );
 
@@ -15,7 +15,7 @@ myApp.controller('HeroController', ['$scope', '$http', function($scope, $http) {
   }; // end clearForm
 
   $scope.addHero = function() {
-    console.log('in addHero');
+    if (verbose) console.log('in addHero');
     //addemble heroToSend
     var heroToSend = {
       alias: $scope.aliasIn,
@@ -24,26 +24,26 @@ myApp.controller('HeroController', ['$scope', '$http', function($scope, $http) {
       city: $scope.cityIn,
       power_name: $scope.powerIn
     }; // end heroToSend
-    console.log(heroToSend);
+    if (verbose) console.log(heroToSend);
     //send object to the server
     $http({
       method: 'POST',
       url: '/hero',
       data: heroToSend
     }).then( function(response) {
-      console.log(response);
+      if (verbose) console.log(response);
       clearForm();
       $scope.getHeros();
     }); // end $http
   }; // end addHero
 
   $scope.getHeros = function() {
-    console.log('in getHeros');
+    if (verbose) console.log('in getHeros');
     $http({
       method: 'GET',
       url: '/hero'
     }).then(function(response) {
-      console.log(response);
+      if (verbose) console.log(response);
       $scope.allHeros = response.data;
     }); // end $http
   }; // end getHeros

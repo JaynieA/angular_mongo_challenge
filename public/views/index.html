@@ -23,7 +23,7 @@
         <input ng-model="powerIn" type="text" name="power" value="">
         <button type="submit" name="button">Add Hero</button>
       </form>
-      <div ng-repeat="hero in allHeros">
+      <div ng-repeat="hero in allHeros" style="width:20%; display: inline-block;">
         <p>Alias: {{ hero.alias }}</p>
         <p>City: {{ hero.city }}</p>
         <p>Name: {{ hero.first_name }} {{ hero.last_name }}</p>
